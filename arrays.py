@@ -1,33 +1,32 @@
 ```python
-class ContactList:
+class MyArray:
     def __init__(self):
-        self.contacts = []
+        self.data = []
 
-    def add(self, name, phone):
-        self.contacts.append((name, phone))
+    def append(self, value):
+        self.data.append(value)
 
     def get(self, index):
-        return self.contacts[index] if 0 <= index < len(self.contacts) else None
+        if 0 <= index < len(self.data):
+            return self.data[index]
+        print("索引越界！")
+        return None
 
-    def insert(self, index, name, phone):
-        self.contacts.insert(index, (name, phone))
+    def insert(self, index, value):
+        if 0 <= index <= len(self.data):
+            self.data.insert(index, value)
+        else:
+            print("索引越界！")
 
     def remove(self, index):
-        return self.contacts.pop(index) if 0 <= index < len(self.contacts) else None
+        if 0 <= index < len(self.data):
+            return self.data.pop(index)
+        print("索引越界！")
+        return None
 
+    def length(self):
+        return len(self.data)
 
-# 使用示例
-clist = ContactList()
-clist.add("Alice", "123")
-clist.add("Bob", "456")
-clist.insert(1, "Tom", "789")
-
-print(clist.get(0))  # ('Alice', '123')
-print(clist.get(1))  # ('Tom', '789')
-print(clist.get(2))  # ('Bob', '456')
-
-clist.remove(1)
-print(clist.get(1))  # ('Bob', '456')
 
 ```
 
